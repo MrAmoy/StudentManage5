@@ -7,11 +7,19 @@
 
 <body>
 	<%
+		String usertype = request.getParameter("op");
 		String user = request.getParameter("username");
 		String pw = request.getParameter("password");
+		
+		session.setAttribute("usertype", usertype);
 		session.setAttribute("user", user);
 		session.setAttribute("pw", pw); 
-		response.sendRedirect("stuAdmin.jsp");
+		
+		if(usertype.equals("student")) {
+			response.sendRedirect("stuAdmin2.jsp");
+		} else {
+			response.sendRedirect("stuAdmin.jsp");
+		}
 	%>
 </body>
 </html>

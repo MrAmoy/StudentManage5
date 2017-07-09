@@ -10,21 +10,13 @@
         <br><br><br>
         <br><br><br>
         <p>
-            &nbsp;<a href="lookStudent_jsp?curpage=1" target="main">学生信息查询</a>
+            &nbsp;<a href="stuLook" target="main">查询我的信息</a>
         </p>
-        <br>
+        <br><br>
         <p>
-            &nbsp;<a href="addStudent.jsp" target="main">学生信息添加</a>
+        	&nbsp;<a href="updatePassword.jsp" target="_parent">修&nbsp;&nbsp;改&nbsp;&nbsp;密&nbsp;&nbsp;码</a>
         </p>
-        <br>
-        <p>
-            &nbsp;<a href="deleteStudent_jsp?curpage=1" target="main">学生信息删除</a>
-        </p>
-        <br>
-        <p>
-            &nbsp;<a href="updateStudent_jsp?curpage=1" target="main">学生信息修改</a> 
-        </p>
-        <br>
+        <br><br>
         <p>
             &nbsp;<a href="login.jsp" target="_parent">退&nbsp;&nbsp;出&nbsp;&nbsp;系&nbsp;&nbsp;统</a>
         </p>

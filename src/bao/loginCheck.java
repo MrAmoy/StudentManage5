@@ -3,13 +3,16 @@ package bao;
 import java.sql.*;
 
 public class loginCheck {
-	public static boolean Check(String username,String password) {
+	public static boolean Check(String usertype,String username,String password) {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
 			conn = DBGet.getConnection();
-			String sql = "select * from login where username=?";
+			String sql = "select * from users where username=?";
+			if("admin".equals(usertype)) {
+				sql = "select * from admin where username=?";
+			}
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, username); 
 			rs = ps.executeQuery();

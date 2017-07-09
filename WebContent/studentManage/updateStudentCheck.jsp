@@ -7,8 +7,9 @@
         <title>学生信息添加</title>
     </head>
     <body bgcolor="CCCFFF">
+    	<jsp:useBean id="student" class="bao.Student" scope="page" />
     	<%
-            Student student = (Student)request.getAttribute("stu");
+            student = (Student)request.getAttribute("stu");
         %>
         <center>
             <br><br><br><br><br><br>

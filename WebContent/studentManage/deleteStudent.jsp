@@ -7,6 +7,7 @@
 <title>学生信息删除</title>
 </head>
 <body bgcolor="CCCFFF">
+	<jsp:useBean id="student" class="bao.Student" scope="page" />
 	<%
 			PageBean pagebean = (PageBean)session.getAttribute("page");
 			List list = (List)session.getAttribute("data");
@@ -24,7 +25,7 @@
 			</tr>
 			<%
 				for(int i = pagebean.getStartRow(); i < pagebean.getStopRow(); i++) {
-					Student student = (Student)list.get(i);			 
+					student = (Student)list.get(i);			 
 			%>
 			<tr align="center">
 				<td><%=student.getStuId()%></td>

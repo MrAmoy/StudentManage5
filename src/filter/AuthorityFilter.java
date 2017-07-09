@@ -23,14 +23,15 @@ public class AuthorityFilter implements Filter {
 		HttpServletResponse respon = (HttpServletResponse)response;
 		HttpSession session = requ.getSession(true);
 		
+		String usertype = (String)session.getAttribute("usertype");
 		String username = (String)session.getAttribute("user");
 		String password = (String)session.getAttribute("pw");
 		// 获取客户请求的页面
 		String requestPath = requ.getServletPath();
 		//System.out.println(requestPath); 
 		// 如果登录的用户名和密码不正确，且用户请求的既不是登录页面，也不是处理登录的页面
-		if(!loginCheck.Check(username, password) && !requestPath.endsWith(loginPage) && !requestPath.endsWith(doLogin)) {
-			request.setAttribute("tip" , "您还没有登录");
+		if(!loginCheck.Check(usertype,username, password) && !requestPath.endsWith(loginPage) && !requestPath.endsWith(doLogin)) {
+			request.setAttribute("tip" , "温馨提示：请您先使用正确的账号和密码登录");
 			// forward到登录页面
 			request.getRequestDispatcher(loginPage).forward(request, response);
 		} else {

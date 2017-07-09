@@ -62,49 +62,48 @@ public class StudentDAO {
 	}
 	
 	//修改学生信息同步到数据库
-		public boolean insert(Student student) {
-			Connection conn = null;
-			PreparedStatement ps = null;
-			try {
-				conn = DBGet.getConnection();
-				//String sql = "insert into stu values('"+student.getStuId()+"','"+student.getStuName()+"','"+student.getStuSex()+"','"+student.getStuAge()+"','"+student.getStuWeight()+"')";
-				String sql = "insert into stu values(?,?,?,?,?)";
-				ps = conn.prepareStatement(sql);
-				ps.setString(1,student.getStuId());
-				ps.setString(2,student.getStuName());
-	            ps.setString(3,student.getStuSex());
-	            ps.setString(4,student.getStuAge());
-	            ps.setString(5,student.getStuWeight());
-				int num = ps.executeUpdate();
-	            if(num > 0)
-	            	return true;
-			} catch(Exception e) {
-				e.printStackTrace();
-			} finally {
-				DBGet.closePreparedStatement(ps);
-				DBGet.closeConnection(conn);
-			}
-			return false;
+	public boolean insert(Student student) {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		try {
+			conn = DBGet.getConnection();
+			String sql = "insert into stu values(?,?,?,?,?)";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1,student.getStuId());
+			ps.setString(2,student.getStuName());
+	        ps.setString(3,student.getStuSex());
+	        ps.setString(4,student.getStuAge());
+	        ps.setString(5,student.getStuWeight());
+			int num = ps.executeUpdate();
+	        if(num > 0)
+	        	return true;
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBGet.closePreparedStatement(ps);
+			DBGet.closeConnection(conn);
 		}
+		return false;
+	}
 		
-		//修改学生信息同步到数据库
-		public boolean delete(Student student) {
-			Connection conn = null;
-			PreparedStatement ps = null;
-			try {
-				conn = DBGet.getConnection();
-				String sql="delete  from stu where stuID=?";
-				ps = conn.prepareStatement(sql);
-				ps.setString(1, student.getStuId());
-				int num = ps.executeUpdate();
-			    if(num > 0)
-			    	return true;
-			} catch(Exception e) {
-				e.printStackTrace();
-			} finally {
-				DBGet.closePreparedStatement(ps);
-				DBGet.closeConnection(conn);
-			}
-			return false;
+	//修改学生信息同步到数据库
+	public boolean delete(Student student) {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		try {
+			conn = DBGet.getConnection();
+			String sql="delete  from stu where stuID=?";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, student.getStuId());
+			int num = ps.executeUpdate();
+			if(num > 0)
+				return true;
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBGet.closePreparedStatement(ps);
+			DBGet.closeConnection(conn);
 		}
+		return false;
+	}
 }
