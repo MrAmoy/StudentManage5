@@ -6,7 +6,6 @@
 	<display-name>StudentManage4</display-name>
 	<welcome-file-list>
 		<welcome-file>./studentManage/login.jsp</welcome-file>
-		<!-- <welcome-file>/studentManage/stuAdmin.jsp</welcome-file> -->
 	</welcome-file-list>
 	<!-- ***************************************************************************** -->
 	<filter>
@@ -92,6 +91,7 @@
 		<servlet-name>updateStudentCheck1_jsp</servlet-name>
 		<url-pattern>/studentManage/updateStudentCheck1_jsp</url-pattern>
 	</servlet-mapping>
+	<!-- ***************************************************************************** -->
 	<servlet>
 		<servlet-name>updatePassword</servlet-name>
 		<servlet-class>servlet.updatePassword</servlet-class>
@@ -100,6 +100,7 @@
 		<servlet-name>updatePassword</servlet-name>
 		<url-pattern>/studentManage/updatePassword</url-pattern>
 	</servlet-mapping>
+	<!-- ***************************************************************************** -->
 	<servlet>
 		<servlet-name>stuLook</servlet-name>
 		<servlet-class>servlet.stuLook</servlet-class>
