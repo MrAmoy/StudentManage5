@@ -14,7 +14,7 @@ public class DBGet {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=test","sa","123456");
 			//连接MySql数据库
-			/*Class.forName("com.MySQL.jdbc.Driver");
+			/*Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "123456");*/
 		} catch(ClassNotFoundException e) {
 			e.printStackTrace();
